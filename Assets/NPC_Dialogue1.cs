@@ -15,7 +15,7 @@ public class NPC_Dialogue1 : MonoBehaviour
     public GameObject barrierToRemove;
     public ParticleSystem successEffect;
     public GameObject spotlightEffect;
-    public GameObject endScreenToEnable; // ΕΔΩ ΕΙΝΑΙ Η ΜΕΤΑΒΛΗΤΗ ΠΟΥ ΕΛΕΙΠΕ!
+    public GameObject endScreenToEnable; 
 
     private bool isPlayerNearby = false;
     private bool hasInteracted = false;
@@ -38,7 +38,7 @@ public class NPC_Dialogue1 : MonoBehaviour
 
         hasInteracted = true;
 
-        // --- 1ο ΜΗΝΥΜΑ ---
+        
         dialoguePanel.SetActive(true);
         textDisplay.text = npcMessage;
 
@@ -49,7 +49,7 @@ public class NPC_Dialogue1 : MonoBehaviour
 
         yield return new WaitForSeconds(5f);
 
-        // --- 2ο ΜΗΝΥΜΑ & ΑΝΑΜΜΑ ΦΩΤΟΣ/ΕΦΕ ---
+       
         if (spotlightEffect != null)
         {
             spotlightEffect.SetActive(true);
@@ -59,12 +59,12 @@ public class NPC_Dialogue1 : MonoBehaviour
 
         yield return new WaitForSeconds(5f);
 
-        // --- 3ο ΜΗΝΥΜΑ ---
+        
         textDisplay.text = levelCompleteMessage;
 
         yield return new WaitForSeconds(3f);
 
-        // --- Καταστροφή Εμποδίου ---
+        
         if (barrierToRemove != null)
         {
             barrierToRemove.SetActive(false);
@@ -75,7 +75,7 @@ public class NPC_Dialogue1 : MonoBehaviour
             spotlightEffect.SetActive(false);
         }
 
-        // --- ΕΜΦΑΝΙΣΗ ΜΕΝΟΥ ΤΕΛΟΥΣ & ΞΕΚΛΕΙΔΩΜΑ ΠΟΝΤΙΚΙΟΥ ---
+        
         if (endScreenToEnable != null)
         {
             endScreenToEnable.SetActive(true);
