@@ -29,5 +29,5 @@ The player must interact with 9 different NPCs across 9 levels. Each NPC explain
 * Read the dialogues, observe the visual metaphors, and watch the barriers drop to proceed to the next island!
 
 ## 👨‍💻 Credits
-Developed by [Your Name / Γράψε το όνομά σου εδώ]. 
+Developed by Foivos Tsouchlis. 
 Created for educational purposes.
