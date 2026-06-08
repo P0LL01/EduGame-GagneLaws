@@ -15,7 +15,11 @@ public class NPC_Dialogue1 : MonoBehaviour
     public GameObject barrierToRemove;
     public ParticleSystem successEffect;
     public GameObject spotlightEffect;
-    public GameObject endScreenToEnable; 
+    public GameObject endScreenToEnable;
+
+    [Header("Lighting Settings (For Finale)")]
+    public Light sunToDim; 
+    public bool dimTheSun = false; 
 
     private bool isPlayerNearby = false;
     private bool hasInteracted = false;
@@ -38,44 +42,32 @@ public class NPC_Dialogue1 : MonoBehaviour
 
         hasInteracted = true;
 
-        
         dialoguePanel.SetActive(true);
         textDisplay.text = npcMessage;
 
-        if (successEffect != null)
-        {
-            successEffect.Play();
-        }
+        if (successEffect != null) successEffect.Play();
 
         yield return new WaitForSeconds(5f);
 
-       
-        if (spotlightEffect != null)
+        if (spotlightEffect != null) spotlightEffect.SetActive(true);
+
+        
+        if (dimTheSun && sunToDim != null)
         {
-            spotlightEffect.SetActive(true);
+            sunToDim.intensity = 0.02f; 
         }
 
         textDisplay.text = gagneExplanation;
 
         yield return new WaitForSeconds(5f);
 
-        
         textDisplay.text = levelCompleteMessage;
 
         yield return new WaitForSeconds(3f);
 
-        
-        if (barrierToRemove != null)
-        {
-            barrierToRemove.SetActive(false);
-        }
+        if (barrierToRemove != null) barrierToRemove.SetActive(false);
+        if (spotlightEffect != null) spotlightEffect.SetActive(false);
 
-        if (spotlightEffect != null)
-        {
-            spotlightEffect.SetActive(false);
-        }
-
-        
         if (endScreenToEnable != null)
         {
             endScreenToEnable.SetActive(true);

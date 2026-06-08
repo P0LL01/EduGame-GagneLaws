@@ -31,7 +31,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (mainCam == null)
         {
-            mainCam = Camera.main; // Βρίσκει αυτόματα την κάμερα με το Tag "MainCamera"
+            mainCam = Camera.main; 
         }
     }
 
